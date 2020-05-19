@@ -25,16 +25,14 @@ export class HomeComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      this.cardImageBase64 = reader.result.toString();
-
-      console.log(this.cardImageBase64);
-      return this.cardImageBase64;
+      return reader.result.toString();
     };
 
-    // reader.onerror = (error) => {
-    //   console.log('Error: ', error);
-    // };
+    reader.onerror = (error) => {
+      console.error('Error: ', error);
+    };
   }
+
   openDialog(imageBase64Ref: string) {
     this.dialog.open(ModalComponent, {
       data: {

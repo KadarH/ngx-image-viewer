@@ -15,7 +15,6 @@ export class ModalComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   ngOnInit(): void {
-    console.log(this.data);
     this.imageBase64 = this.data.imageBase64;
   }
 }
